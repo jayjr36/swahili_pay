@@ -100,7 +100,7 @@ class LoginPageState extends State<LoginPage> {
             const SizedBox(height: 20),
 
             Text(
-              "Welcome to Yourbank Pay",
+              "Welcome to SwahiliPay",
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,

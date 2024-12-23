@@ -7,26 +7,34 @@ class CategoryImage extends StatelessWidget {
   const CategoryImage(this.img, this.subtitle, {super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          width: 80,
-          height: 80,
-          decoration: BoxDecoration(
-              color: Colors.grey[200],
-              borderRadius: BorderRadius.circular(50),
-              border: Border.all(width: 1, color: Colors.blue[900]!)),
-          child: 
-              Image.network(img, width: 30,),
-            
+Widget build(BuildContext context) {
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      Container(
+        width: 60,
+        height: 60,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle, 
+          color: Colors.white,
+          // border: Border.all(width: 1, color: Colors.blue[900]!),
         ),
-        Text(
-            subtitle,
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 10),
-          )
-      ],
-    );
-  }
+        child: ClipOval(
+          child: Image.asset(
+            img,
+            fit: BoxFit.contain, // Ensures the image fits within the circle
+          ),
+        ),
+      ),
+      const SizedBox(height: 8), // Add spacing between the image and text
+      Text(
+        subtitle,
+        textAlign: TextAlign.center,
+        style: const TextStyle(fontSize: 10),
+      ),
+    ],
+  );
+}
+
 }

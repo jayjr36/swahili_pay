@@ -9,15 +9,15 @@ class MobileRecharge extends StatefulWidget {
 }
 
 class _MobileRechargeState extends State<MobileRecharge> {
-  String? _selectedOperator; // Default value for operator
-  String? _selectedPlan; // Default value for plan
+  String? _selectedOperator; 
+  String? _selectedPlan; 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Mobile Recharge'),
-        backgroundColor: Colors.orange, // Adjust color to suit your theme
+        backgroundColor: Colors.orange, 
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

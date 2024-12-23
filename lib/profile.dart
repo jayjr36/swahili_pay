@@ -12,33 +12,63 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('Transaction History'),
+        backgroundColor: Colors.white,
+        title: const Text('Profile'),
       ),
       body: SingleChildScrollView(
           child: Column(
         children: [
           Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12), 
+            ),
+            elevation: 4, 
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Row(
                 children: [
-                  const CircleAvatar(
-                    child: Icon(Icons.person),
+                  Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: Colors.blue.shade900,
+                        width: 2, 
+                      ),
+                    ),
+                    child: const CircleAvatar(
+                      radius: 30,
+                      backgroundImage: NetworkImage(
+                        'https://plus.unsplash.com/premium_photo-1731499365752-cf90a04e0836?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YXZhdGFyJTIwcHJvZmlsZSUyMHBpY3xlbnwwfHwwfHx8MA%3D%3D',
+                      ),
+                    ),
                   ),
-                  const SizedBox(width: 16),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'John Doe',
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                      Text(
-                        '0718765432',
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
-                    ],
+                  const SizedBox(width: 16), 
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'John Doe',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall
+                              ?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.blue[900],
+                              ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          '0718765432',
+                          style:
+                              Theme.of(context).textTheme.bodySmall?.copyWith(
+                                    color: Colors.grey[700],
+                                  ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -51,7 +81,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Column(
               children: [
                 Text('Payment Methods'),
-                Text('Bank Accounts'),
               ],
             ),
           ),

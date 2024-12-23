@@ -45,152 +45,155 @@ class LoginPageState extends State<LoginPage> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: EdgeInsets.all(h * 0.05),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            // Language Dropdown
-            Align(
-              alignment: Alignment.topRight,
-              child: Container(
-                width: w * 0.4,
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey.shade400),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: DropdownButton<String>(
-                  value: selectedLanguage,
-                  underline: SizedBox(), // Remove default underline
-                  isExpanded: true, // Ensures a clean layout
-                  items: languages.map((lang) {
-                    return DropdownMenuItem(
-                      value: lang['name'],
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(lang['flag'] ?? ''), // Display the country flag
-                          const SizedBox(width: 8),
-                          Text(lang['name'] ?? ''), // Display language name
-                          const Spacer(),
-                          Text(lang['icon'] ?? ''), // Add the suffix icon
-                        ],
-                      ),
-                    );
-                  }).toList(),
-                  onChanged: (value) {
-                    setState(() {
-                      selectedLanguage = value!;
-                    });
-                  },
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 20),
-
-            // Welcome Image
-            Image.asset(
-              "assets/images/login.png", // Replace with your asset path
-              height: h * 0.35,
-              fit: BoxFit.contain,
-            ),
-
-            const SizedBox(height: 20),
-
-            Text(
-              "Welcome to SwahiliPay",
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: AppConstants.primaryColor,
-              ),
-              textAlign: TextAlign.center,
-            ),
-
-            const SizedBox(height: 20),
-
-            // Enter Phone Text
-            const Text(
-              "Enter your phone number",
-              style: TextStyle(fontSize: 16),
-            ),
-
-            const SizedBox(height: 10),
-
-            // Phone Number Field
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey.shade400),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Row(
-                children: [
-                  DropdownButton<String>(
-                    value: selectedCountryCode,
-                    items: countryCodes.map((country) {
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(h * 0.05),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              // Language Dropdown
+              Align(
+                alignment: Alignment.topRight,
+                child: Container(
+                  width: w * 0.4,
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey.shade400),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: DropdownButton<String>(
+                    value: selectedLanguage,
+                    underline: const SizedBox(), 
+                    isExpanded: true, 
+                    items: languages.map((lang) {
                       return DropdownMenuItem(
-                        value: country['code'],
+                        value: lang['name'],
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(country['flag'] ?? ''), // Display flag
+                            Text(lang['flag'] ?? ''),
                             const SizedBox(width: 8),
-                            Text(country['code'] ?? ''), // Display code
+                            Text(lang['name'] ?? ''), 
+                            const Spacer(),
+                            Text(lang['icon'] ?? ''), 
                           ],
                         ),
                       );
                     }).toList(),
                     onChanged: (value) {
                       setState(() {
-                        selectedCountryCode = value!;
+                        selectedLanguage = value!;
                       });
                     },
-                    underline: const SizedBox(),
                   ),
-                  const VerticalDivider(width: 1, color: Colors.grey),
-                  Expanded(
-                    child: TextField(
-                      controller: phoneController,
-                      keyboardType: TextInputType.phone,
-                      decoration: const InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Phone number",
-                        contentPadding: EdgeInsets.symmetric(vertical: 12),
+                ),
+              ),
+        
+              const SizedBox(height: 20),
+        
+              // Welcome Image
+              Image.asset(
+                "assets/images/login.png", 
+                height: h * 0.35,
+                fit: BoxFit.contain,
+              ),
+        
+              const SizedBox(height: 20),
+        
+              Text(
+                "Welcome to SwahiliPay",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: AppConstants.primaryColor,
+                ),
+                textAlign: TextAlign.center,
+              ),
+        
+              const SizedBox(height: 20),
+        
+              // Enter Phone Text
+              const Text(
+                "Enter your phone number",
+                style: TextStyle(fontSize: 16),
+              ),
+        
+              const SizedBox(height: 10),
+        
+              // Phone Number Field
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey.shade400),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Row(
+                  children: [
+                    DropdownButton<String>(
+                      value: selectedCountryCode,
+                      items: countryCodes.map((country) {
+                        return DropdownMenuItem(
+                          value: country['code'],
+                          child: Row(
+                            children: [
+                              Text(country['flag'] ?? ''), 
+                              const SizedBox(width: 8),
+                              Text(country['code'] ?? ''),
+                            ],
+                          ),
+                        );
+                      }).toList(),
+                      onChanged: (value) {
+                        setState(() {
+                          selectedCountryCode = value!;
+                        });
+                      },
+                      underline: const SizedBox(),
+                    ),
+                    const VerticalDivider(width: 1, color: Colors.grey),
+                    Expanded(
+                      child: TextField(
+                        controller: phoneController,
+                        keyboardType: TextInputType.phone,
+                        decoration: const InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Phone number",
+                          contentPadding: EdgeInsets.symmetric(vertical: 12),
+                        ),
                       ),
                     ),
+                  ],
+                ),
+              ),
+        
+              SizedBox(height: h * 0.2),
+        
+              //  Button
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    // if (phoneController.text.isNotEmpty) {
+                      navigateToOtpScreen();
+                    // } else {
+                      // ScaffoldMessenger.of(context).showSnackBar(
+                      //   const SnackBar(
+                      //       content: Text("Please enter your phone number")
+                      //       ),
+                      // );
+                   // }
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppConstants.primaryColor,
                   ),
-                ],
-              ),
-            ),
-
-            SizedBox(height: h * 0.2),
-
-            //  Button
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  if (phoneController.text.isNotEmpty) {
-                    navigateToOtpScreen();
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                          content: Text("Please enter your phone number")),
-                    );
-                  }
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppConstants.primaryColor,
-                ),
-                child: const Text(
-                  "NEXT",
-                  style: TextStyle(color: Colors.white),
+                  child: const Text(
+                    "NEXT",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

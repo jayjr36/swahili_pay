@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:gpay/home_screen.dart';
+import 'package:gpay/home.dart';
 
 class OtpScreen extends StatelessWidget {
-  final String phone;
+  final String? phone;
 
-  const OtpScreen({Key? key, required this.phone}) : super(key: key);
+  const OtpScreen({super.key, this.phone});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class OtpScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Text(
-              "We have sent a code to $phone",
+              "We have sent a code to ${phone ?? '0123456'}",
               style: const TextStyle(fontSize: 16),
               textAlign: TextAlign.center,
             ),
@@ -43,18 +43,23 @@ class OtpScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
+            SizedBox(
+              width: double.infinity,
+              child:   ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const HomeScreen()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) =>  Home()));
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text("OTP Verified")),
                 );
               },
-              child: const Text("Verify"),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue[900]
+              ),
+              child: const Text("CONFIRM", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
             ),
+            ),
+          
           ],
         ),
       ),

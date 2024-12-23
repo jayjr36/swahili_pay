@@ -4,7 +4,7 @@ import 'package:gpay/home_screen.dart';
 import 'package:gpay/login.dart';
 
 class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({Key? key}) : super(key: key);
+  const OnboardingScreen({super.key});
 
   @override
   _OnboardingScreenState createState() => _OnboardingScreenState();
@@ -30,7 +30,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             controller: _pageController,
             children: [
               _buildPage(
-                "Welcome to Ez-Pay",
+                "Welcome to SwahiliPay",
                 "assets/images/splash1.png",
                 "Simple and secure way to send, spend and manage your money.",
               ),

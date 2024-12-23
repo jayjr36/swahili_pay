@@ -36,7 +36,9 @@ class _HistoryScreenState extends State<HistoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+         backgroundColor: Colors.white,
         title: const Text('Transaction History'),
       ),
       body: SingleChildScrollView(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gpay/constants.dart';
-import 'package:gpay/home.dart';
+import 'package:gpay/home_screen.dart';
 import 'package:gpay/login.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -31,17 +31,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             children: [
               _buildPage(
                 "Welcome to Ez-Pay",
-                "assets/images/splash1.png", 
+                "assets/images/splash1.png",
                 "Simple and secure way to send, spend and manage your money.",
               ),
               _buildPage(
                 "Real-time Payments",
-                "assets/images/splash2.png", 
+                "assets/images/splash2.png",
                 "Experience instant, secure, and hassle-free transactions anytime.",
               ),
               _buildPage(
                 "24/7 Support",
-                "assets/images/splash3.png", 
+                "assets/images/splash3.png",
                 "Get assistance whenever you need it with our dedicated support team.",
               ),
             ],
@@ -74,7 +74,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   Widget _buildPage(String title, String imagePath, String description) {
-    double h= MediaQuery.of(context).size.height;
+    double h = MediaQuery.of(context).size.height;
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -89,13 +89,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
             textAlign: TextAlign.center,
           ),
-           SizedBox(height: h*0.05),
+          SizedBox(height: h * 0.05),
           Image.asset(
             imagePath,
-            height: h*0.3, 
+            height: h * 0.3,
             fit: BoxFit.contain,
           ),
-         SizedBox(height: h*0.05),
+          SizedBox(height: h * 0.05),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Text(
@@ -109,4 +109,3 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 }
-

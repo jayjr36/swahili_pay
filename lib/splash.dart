@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:gpay/onboarding.dart';
 
-
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -30,8 +29,8 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: Colors.white,
       body: Center(
         child: Image.asset(
-          "assets/wallet.png", 
-          height: 150, 
+          "assets/wallet.png",
+          height: 150,
           width: 150,
           fit: BoxFit.contain,
         ),
@@ -39,4 +38,3 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
-

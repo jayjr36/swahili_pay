@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gpay/home.dart';
+import 'package:gpay/home_screen.dart';
 
 class OtpScreen extends StatelessWidget {
   final String phone;
@@ -45,7 +45,10 @@ class OtpScreen extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HomeScreen()));
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text("OTP Verified")),
                 );

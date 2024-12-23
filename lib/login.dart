@@ -54,7 +54,7 @@ class LoginPageState extends State<LoginPage> {
             Align(
               alignment: Alignment.topRight,
               child: Container(
-                width: w*0.4,
+                width: w * 0.4,
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey.shade400),
@@ -93,7 +93,7 @@ class LoginPageState extends State<LoginPage> {
             // Welcome Image
             Image.asset(
               "assets/images/login.png", // Replace with your asset path
-              height: h*0.35,
+              height: h * 0.35,
               fit: BoxFit.contain,
             ),
 
@@ -165,7 +165,7 @@ class LoginPageState extends State<LoginPage> {
               ),
             ),
 
-            SizedBox(height: h*0.2),
+            SizedBox(height: h * 0.2),
 
             //  Button
             SizedBox(
@@ -182,8 +182,12 @@ class LoginPageState extends State<LoginPage> {
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppConstants.primaryColor,),
-                child: const Text("NEXT", style: TextStyle(color: Colors.white),),
+                  backgroundColor: AppConstants.primaryColor,
+                ),
+                child: const Text(
+                  "NEXT",
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ),
           ],

@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
-
 class PhoneTransfer extends StatelessWidget {
   const PhoneTransfer({super.key});
 
-  static const List<String> countryCodes = ['+254', '+255', '+256', '+257', '+250', '+251'];
+  static const List<String> countryCodes = [
+    '+254',
+    '+255',
+    '+256',
+    '+257',
+    '+250',
+    '+251'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +19,7 @@ class PhoneTransfer extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar( ),
+      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -34,7 +40,8 @@ class PhoneTransfer extends StatelessWidget {
                       selectedCountryCode = newValue;
                     }
                   },
-                  items: countryCodes.map<DropdownMenuItem<String>>((String value) {
+                  items: countryCodes
+                      .map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value),
